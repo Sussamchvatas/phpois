@@ -1,113 +1,71 @@
 <?php
-echo "Ahoj světe";
-echo "<br><br>";
 
-$zvirata = ["kočka", "pes", "veverka"];
-echo $zvirata[0]; 
-echo "<br>";
-foreach ($zvirata as $zvire) {
-    echo $zvire . " ";
+$score = null;
+$total = 3;
+
+if (isset($_GET['odeslat'])) {
+// strtolower je čistě na to aby odpověď byla vždy v malých písmenech že když napíšete Praha nebo praha tak vám to dá správnou odpověď u obou
+    $a1 = (int) trim($_GET['otazka1'] ?? 0);
+    $a2 = strtolower(trim($_GET['otazka2'] ?? ''));
+    $a3 = strtolower(trim($_GET['otazka3'] ?? ''));
+
+
+    $score = 0;
+    if ($a1 === 4) $score++;
+    if ($a2 === 'praha') $score++;
+    if ($a3 === 'ano') $score++;
 }
-echo "<br><br>";
+?>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <title>Kvíz</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 2rem; }
+        label { display: block; margin-top: 1rem; }
+        input[type="text"] { width: 100%; padding: .4rem; box-sizing: border-box; }
+        .result { margin-top: 1.5rem; padding: 1rem; border: 1px solid #ccc; background: #f9f9f9; }
+        img { max-width: 200px; display:block; margin-top:.5rem; }
+    </style>
+</head>
+<body>
 
-$x = 10;
-$jmeno = "Petr";
-echo $x . " " . $jmeno;
-echo "<br><br>";
+<h1>Krátký kvíz</h1>
 
-for ($i = 1; $i <= 5; $i++) {
-    echo $i . " ";
-}
-echo "<br><br>";
+<?php if ($score !== null): ?>
+    <div class="result">
+        <strong>Máte <?php echo $score; ?> správných odpovědí z <?php echo $total; ?>.</strong>
+        <?php
+        if ($score === $total) {
+            echo "<p>Nerd_emoji</p>";
+            echo "<img src='obrazek3.jpg' alt='výborně'>";
+        } elseif ($score >= 2) {
+            echo "<p>i guess bro</p>";
+            echo "<img src='obrazek2.jpg' alt='dobře'>";
+        } else {
+            echo "<p>fekal</p>";
+            echo "<img src='obrazek0.jpg' alt='zkuste znovu'>";
+        }
+        ?>
+    </div>
+<?php else: ?>
+    <p>Odpovězte na následující otázky a stiskněte Odeslat.</p>
+<?php endif; ?>
 
-$jmeno = "Petr";
-echo "Ahoj " . $jmeno;
-echo "<br><br>";
+<form method="get" action="">
+    <label for="ot1">1) Kolik nohou má pes?</label>
+    <input id="ot1" type="text" name="otazka1" value="<?php echo htmlspecialchars($_GET['otazka1'] ?? ''); ?>">
 
+    <label for="ot2">2) Jaké je hlavní město České republiky?</label>
+    <input id="ot2" type="text" name="otazka2" value="<?php echo htmlspecialchars($_GET['otazka2'] ?? ''); ?>">
 
-echo "<strong>ÚLOHA 1:</strong><br>";
-for ($i = 1; $i <= 100; $i++) {
-    echo $i . "<br>";
-}
-echo "<br>";
+    <label for="ot3">3) Je voda mokrá? (Ano/Ne)</label>
+    <input id="ot3" type="text" name="otazka3" value="<?php echo htmlspecialchars($_GET['otazka3'] ?? ''); ?>">
 
-echo "<strong>ÚLOHA 2:</strong><br>";
-for ($i = 1; $i <= 100; $i++) {
-    if ($i > 50) {
-        echo "hodně<br>";
-    } else {
-        echo $i . "<br>";
-    }
-}
-echo "<br>";
+    <br><br>
+    <button type="submit" name="odeslat">Odeslat</button>
+</form>
 
-echo "<strong>ÚLOHA 3:</strong><br>";
-for ($i = 1; $i <= 100; $i++) {
-    if ($i % 2 == 0) {
-        echo $i . "<br>";
-    }
-}
-echo "<br>";
-
-echo "<strong>ÚLOHA 4:</strong><br>";
-for ($i = 1; $i <= 100; $i++) {
-    if ($i % 3 == 0) {
-        echo $i . "<br>";
-    }
-}
-echo "<br>";
-
-echo "<strong>ÚLOHA 5:</strong><br>";
-for ($i = 1; $i <= 100; $i++) {
-    if ($i % 3 == 0 && $i % 5 == 0) {
-        echo "BUM PRÁSK<br>";
-    } elseif ($i % 3 == 0) {
-        echo "BUM<br>";
-    } elseif ($i % 5 == 0) {
-        echo "PRÁSK<br>";
-    } else {
-        echo $i . "<br>";
-    }
-}
-echo "<br>";
-
-echo "<strong>ÚLOHA 6:</strong><br>";
-$ovoce = ["jablko", "hruška", "banán", "švestka", "pomeranč", "citron", "hrozny", "ananas"];
-foreach ($ovoce as $f) {
-    echo $f . "<br>";
-}
-echo "<br>";
-
-echo "<strong>ÚLOHA 7:</strong><br>";
-$slova = ["auto", "počítač", "stůl", "židle", "knihovna", "lampička"];
-foreach ($slova as $s) {
-    if (strlen($s) > 5) {
-        echo strtoupper($s) . "<br>";
-    } else {
-        echo $s . "<br>";
-    }
-}
-echo "<br>";
-
-echo "<strong>ÚLOHA 8:</strong><br>";
-$jm = "Anna";
-$vek = 28;
-echo "Ahoj, jmenuji se " . $jm . " a je mi " . $vek . " let.";
-echo "<br><br>";
-
-echo "<strong>ÚLOHA 9:</strong><br>";
-$hod = rand(1, 6);
-echo "Hod kostkou: " . $hod;
-echo "<br><br>";
-
-echo "<strong>ÚLOHA 10:</strong><br>";
-$podmet = ["Kočka", "Pes", "Veverka", "Chobotnice", "Pták"];
-$prisudek = ["jí", "vidí", "nese", "kouše", "pozoruje"];
-$predmet = ["jablko", "batoh", "list", "rybu", "sušenku"];
-
-$randPod = $podmet[array_rand($podmet)];
-$randPris = $prisudek[array_rand($prisudek)];
-$randPred = $predmet[array_rand($predmet)];
-
-echo $randPod . " " . $randPris . " " . $randPred . ".";
-echo "<br>";
+</body>
+</html>
