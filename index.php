@@ -5,9 +5,9 @@ $total = 3;
 
 if (isset($_GET['odeslat'])) {
 // strtolower je čistě na to aby odpověď byla vždy v malých písmenech že když napíšete Praha nebo praha tak vám to dá správnou odpověď u obou
-    $a1 = (int) trim($_GET['otazka1'] ?? 0);
-    $a2 = strtolower(trim($_GET['otazka2'] ?? ''));
-    $a3 = strtolower(trim($_GET['otazka3'] ?? ''));
+    $a1 = (int) trim($_GET['otazka1']  0);
+    $a2 = strtolower(trim(isset($_GET['otazka2'])  $_GET['otazka2'] : ''));
+    $a3 = strtolower(trim(isset($_GET['otazka3'])  $_GET['otazka3'] : ''));
 
 
     $score = 0;
