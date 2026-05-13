@@ -17,12 +17,10 @@ if (isset($_GET['odeslat'])) {
         $score++;
     }
 
-  
     if ($a2 == "praha") {
         $score++;
     }
 
-   
     if ($a3 == "ano") {
         $score++;
     }
@@ -34,41 +32,16 @@ if (isset($_GET['odeslat'])) {
 <head>
     <meta charset="utf-8">
     <title>Kvíz</title>
-
     <style>
-        body {
-            font-family: sans-serif;
-            max-width: 700px;
-            margin: 2rem;
-        }
-
-        label {
-            display: block;
-            margin-top: 1rem;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: .4rem;
-            box-sizing: border-box;
-        }
-
-        .result {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-        }
-
-        img {
-            max-width: 200px;
-            display: block;
-            margin-top: .5rem;
-        }
+        body { font-family: sans-serif; max-width: 700px; margin: 2rem; }
+        label { display: block; margin-top: 1rem; }
+        input[type="text"] { width: 100%; padding: .4rem; box-sizing: border-box; }
+        .result { margin-top: 1.5rem; padding: 1rem; border: 1px solid #ccc; background: #f9f9f9; }
+        img { max-width: 200px; display:block; margin-top:.5rem; }
     </style>
 </head>
-
 <body>
+
 
 <h1>Krátký kvíz</h1>
 
@@ -124,8 +97,8 @@ if ($score !== null) {
     <button type="submit" name="odeslat">Odeslat</button>
 
 </form>
-//kdyby vás to uplnou náhdou zajímalo tak během zkoušení psaní tohoto kódu domu mi byl počítač schopen hodit blue screen
- a zkorumpuvat mi celé vss a zhruba tak hodinu jsem s tím bojoval než jsem mi to povedlo vůbec reinstallovat jen abych zjistil 
- že se mi to neuložilo :( 
+<!-- kdyby vás to uplnou náhdou zajímalo tak během zkoušení psaní tohoto kódu doma mi byl počítač schopen hodit blue screen
+ a zkorumpuvat mi celé vss a zhruba tak hodinu jsem s tím bojoval než se mi to povedlo vůbec reinstallovat jen abych zjistil 
+ že se mi to neuložilo :( -->
 </body>
 </html>
