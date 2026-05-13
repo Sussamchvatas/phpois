@@ -39,13 +39,13 @@ if (isset($_GET['odeslat'])) {
         <?php
         if ($score === $total) {
             echo "<p>Nerd_emoji</p>";
-            echo "<img src='obrazek3.jpg' alt='výborně'>";
+            echo "<img src='ab67706c0000da841f54312d0c9f27ecd5b7cd94.jpg' alt='výborně'>";
         } elseif ($score >= 2) {
             echo "<p>i guess bro</p>";
-            echo "<img src='obrazek2.jpg' alt='dobře'>";
+            echo "<img src='dap-me-up-dab-me-up.gif' alt='dobře'>";
         } else {
             echo "<p>fekal</p>";
-            echo "<img src='obrazek0.jpg' alt='zkuste znovu'>";
+            echo "<img src='cpng.png' alt='zkuste znovu'>";
         }
         ?>
     </div>
